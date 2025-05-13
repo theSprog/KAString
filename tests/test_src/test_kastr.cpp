@@ -1209,6 +1209,7 @@ TEST_CASE("fmt torture") {
     SUBCASE("KAStr::fmt - basic formatting") {
         CHECK(KAStr("hello").fmt() == "hello");
         CHECK(KAStr("hi {}").fmt(42) == "hi 42");
+        CHECK(KAStr("hi {}").fmt(true) == "hi true");
         CHECK(KAStr("sum: {} + {} = {}").fmt(1, 2, 3) == "sum: 1 + 2 = 3");
     }
 

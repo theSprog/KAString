@@ -32,7 +32,7 @@ if [ $# -eq 0 ]; then
     done
     lcov "${INFO_FILES[@]}" -o "$FINAL_COVERAGE"
     echo ">>> Merged coverage saved to $FINAL_COVERAGE"
-    genhtml coverage/coverage.info --output-directory coverage/kstring
+    genhtml coverage/coverage.info --output-directory coverage/kastring
 else
     # 如果传入了测试名，简单运行该测试
     name="$1"
