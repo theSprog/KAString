@@ -1,0 +1,2 @@
+exclude = */usr/include/*
+exclude = */test_src/*

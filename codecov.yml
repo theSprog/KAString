@@ -1,0 +1,24 @@
+codecov:
+  require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+  status:
+    project:
+      default:
+        target: 80%        # 目标覆盖率，合理可接受
+        threshold: 5%      # 覆盖率下降不超过5%可以接受
+        branches: 
+          - master
+    patch:
+      default:
+        target: 80%
+        threshold: 5%
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: true

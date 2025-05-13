@@ -1,0 +1,11 @@
+tests/bin
+tests/coverage
+.cache/*
+build/*
+compile_commands.json
+libkstring_debug.a
+libkstring_debug.so
+libkstring.a
+libkstring.so
+
+build_third_party
