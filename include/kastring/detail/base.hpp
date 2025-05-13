@@ -149,4 +149,5 @@ inline std::size_t fnv1a_hash(const ByteRange& r) {
 
 class KAStr;
 class KAString;
+class StyledKAStr;
 } // namespace kstring

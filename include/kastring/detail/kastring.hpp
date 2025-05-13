@@ -12,6 +12,7 @@
 
 #include "./kastr.hpp"
 #include "./sso.hpp"
+#include "./style.hpp"
 
 namespace kastring {
 class KAString {
@@ -813,6 +814,10 @@ class KAString {
     template <typename... Args>
     KAString fmt(const Args&... args) const {
         return as_kastr().fmt(args...);
+    }
+
+    StyledKAStr style() const {
+        return as_kastr().style();
     }
 
     template <typename Predicate>

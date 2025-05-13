@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "base.hpp"
+#include "style.hpp"
 #include "kastr.hpp"
 #include "kastring.hpp"
 
@@ -308,4 +309,42 @@ KAString KAStr::fmt(const Args&... args) const {
     return out;
 }
 
+inline StyledKAStr KAStr::style() const {
+    return StyledKAStr(*this);
+}
+} // namespace kastring
+
+namespace kastring {
+inline KAString StyledKAStr::to_ansi() const {
+    KAString out;
+    out.reserve(text_.byte_size() + 64);
+
+    out.append("\033[");
+
+    bool first = true;
+    auto emit = [&](const KAString& code) {
+        if (! first) out.append(";");
+        out.append(code);
+        first = false;
+    };
+
+    if (! fg_code_.empty()) emit(fg_code_);
+    if (! bg_code_.empty()) emit(bg_code_);
+    if (bold_) emit("1");
+    if (italic_) emit("3");
+    if (underline_) emit("4");
+
+    out.append("m");
+    out.append(text_);
+    out.append("\033[0m");
+    return out;
+}
+
+inline KAString StyledKAStr::own() const {
+    return to_ansi();
+}
+
+inline std::ostream& operator<<(std::ostream& os, const StyledKAStr& s) {
+    return os << s.to_ansi();
+}
 } // namespace kastring

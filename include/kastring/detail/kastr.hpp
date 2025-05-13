@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <string>
 #include <ostream>
+#include <limits>
 #include <vector>
 
 namespace kastring {
@@ -512,6 +513,8 @@ class KAStr {
 
     template <typename... Args>
     KAString fmt(const Args&... args) const;
+
+    StyledKAStr style() const;
 
   private:
     char to_lower_ascii(char c) const {
