@@ -14,7 +14,8 @@ class StyledKAStr {
   public:
     StyledKAStr() = default;
 
-    explicit StyledKAStr(const KAStr& str) : text_(str) {}
+    explicit StyledKAStr(const KAStr& str)
+        : text_(str), fg_code_(), bg_code_(), bold_(false), underline_(false), italic_(false) {}
 
     // 样式标志
     StyledKAStr& bold() {

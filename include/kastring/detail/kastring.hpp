@@ -449,10 +449,6 @@ class KAString {
         data_.append(KAStr(ptr, len));
     }
 
-    void append(const KAString& other) {
-        data_.append(other.as_kastr());
-    }
-
     void append(const KAStr& strview) {
         data_.append(strview.begin(), strview.byte_size());
     }
