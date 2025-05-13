@@ -1,8 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <unordered_map>
 #include <doctest/doctest.h>
-#include "../../include/kastring.hpp"
-#include "../../include/tail.hpp"
+#include "../../include/kastring/kastring.hpp"
 
 using namespace kastring;
 

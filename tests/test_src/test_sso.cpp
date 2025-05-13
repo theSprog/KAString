@@ -1,7 +1,6 @@
-#include <string>
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
-#include "../../include/sso.hpp"
+#include "../../include/kastring/detail/sso.hpp"
 
 using kastring::Byte;
 using kastring::SSOBytes;

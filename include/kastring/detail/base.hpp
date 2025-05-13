@@ -7,7 +7,7 @@
 
 #ifdef DBG_MACRO
 #define DBG_MACRO_NO_WARNING
-#include "../dbg.hpp" // IWYU pragma: export
+#include "../../../dbg.hpp" // IWYU pragma: export
 #endif
 
 namespace kastring {
