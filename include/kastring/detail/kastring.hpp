@@ -388,63 +388,20 @@ class KAString {
         return as_kastr().strip_prefix(prefix);
     }
 
-    void strip_prefix_in_place(const KAStr& prefix) {
-        if (this->starts_with(prefix)) {
-            this->replace(0, prefix.byte_size(), KAStr()); // 替换前缀为空串
-        }
-    }
-
     KAStr strip_suffix(const KAStr& suffix) const {
         return as_kastr().strip_suffix(suffix);
-    }
-
-    void strip_suffix_in_place(const KAStr& suffix) {
-        if (this->ends_with(suffix)) {
-            this->resize(this->byte_size() - suffix.byte_size());
-        }
     }
 
     KAStr trim_start() const {
         return as_kastr().trim_start();
     }
 
-    void trim_start_in_place() {
-        std::size_t pos = 0;
-        std::size_t len = this->byte_size();
-        const uint8_t* ptr = this->data();
-
-        while (pos < len && (ptr[pos] == ' ' || ptr[pos] == '\t' || ptr[pos] == '\r' || ptr[pos] == '\n')) {
-            ++pos;
-        }
-        if (pos > 0) {
-            this->replace(0, pos, KAStr());
-        }
-    }
-
     KAStr trim_end() const {
         return as_kastr().trim_end();
     }
 
-    void trim_end_in_place() {
-        std::size_t len = this->byte_size();
-        if (len == 0) return;
-
-        const uint8_t* ptr = this->data();
-        std::size_t pos = len - 1;
-        while (pos != std::size_t(-1) &&
-               (ptr[pos] == ' ' || ptr[pos] == '\t' || ptr[pos] == '\r' || ptr[pos] == '\n')) {
-            --pos;
-        }
-        this->resize(pos + 1);
-    }
-
     KAStr trim() const {
         return as_kastr().trim();
-    }
-
-    void trim_in_place() {
-        this->trim_end_in_place(); // 注意顺序不能反
-        this->trim_start_in_place();
     }
 
     template <typename Predicate>
